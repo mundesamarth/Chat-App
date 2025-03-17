@@ -20,6 +20,14 @@ const Login = () => {
     const handleLogin = e => {
         e.preventDefault()
     }
+    const handleRegister = e => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+
+        const {username,email,password} = Object.fromEntries(formData);
+
+        console.log(username)
+    }
   return (
     <div className="login">
       <div className="item">
@@ -33,7 +41,7 @@ const Login = () => {
       <div className="separator"></div>
       <div className="item">
         <h2>Create an Account</h2>
-        <form>
+        <form onSubmit={handleRegister}>
           <label htmlFor="file">
             <img src={avatar.url || "./avatar.png"} alt="" />
             Upload an image</label>
