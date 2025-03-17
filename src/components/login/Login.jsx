@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./login.css";
-import { toast } from "react-toastify";
 
 const Login = () => {
 
