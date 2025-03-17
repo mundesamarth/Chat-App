@@ -5,13 +5,16 @@ import List from "./components/list/List"
 import Login from "./components/login/Login"
 import Notification from "./components/notification/Notification"
 import { onAuthStateChanged } from "firebase/auth"
-import { auth } from "./Lib/firebase"
+import { auth } from "./Lib/Firebase"
 import { useUserStore } from "./Lib/UserStore"
+import { useChatStore } from "./Lib/chatStore"
 
 
 const App = () => {
 
   const {currentUser,isLoading,fetchUserInfo} = useUserStore();
+  const {chatId} = useChatStore();
+
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
       fetchUserInfo(user?.uid);
@@ -29,8 +32,8 @@ const App = () => {
         currentUser ? ( 
           <>
           <List/>
-          <Chat/>
-          <Detail/>
+          {chatId && <Chat/>}
+          {chatId && <Detail/>}
           </>
           ): (<Login/>)
       }
