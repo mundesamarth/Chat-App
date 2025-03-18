@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./login.css";
 import { toast } from "react-toastify";
 import {createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth"
-import {auth, db} from "../../Lib/firebase"
+import {auth, db} from "../../Lib/Firebase"
 import { doc, setDoc } from "firebase/firestore";
-import upload from "../../Lib/upload";
+import upload from "../../lib/upload";
 
 const Login = () => {
 
